@@ -1,0 +1,20 @@
+# Redirects
+
+Redirect 301 /tumblr http://debilux.tumblr.com/
+Redirect 301 /flickr http://www.flickr.com/photos/chrisb86/
+Redirect 301 /facebook https://www.facebook.com/chrisb86
+Redirect 301 /twitter https://www.twitter.com/chrisb86
+Redirect 301 /webmail https://mail.google.com/a/debilux.org/
+Redirect 301 /github https://github.com/chrisb86/
+Redirect 301 /lastfm http://www.lastfm.de/user/selco
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# www wegkürzen
+	RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+	RewriteRule ^(.*)$ http://%1/$1 [R=301,NC,L]
+
+	# / auf /blog umleiten
+#	RewriteRule  ^$ http://debilux.org/blog/   [R=301,L]
+</IfModule>
